@@ -7,11 +7,11 @@
     <title>Document</title>
     @vite('resources/css/app.css')
 </head>
-<body class=" flex h-full">
+<body class="flex h-screen">
     <div class=" bg-black flex justify-center items-center w-2/5">
         <img src="img/logo.png" class="" alt="">
     </div>
-    <div class="flex justify-center text-xl py-10 items-center w-3/5 bg-yellow-100 px-10">
+    <div class="flex justify-center text-xl py-10 items-center w-3/5 px-10">
         @yield('content')
     </div>
 </body>

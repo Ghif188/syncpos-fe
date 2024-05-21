@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/register', function () {
     return view('firstpage.register');
-});
+})->name('register');
+Route::get('/login', function () {
+    return view('firstpage.login');
+})->name('login');
