@@ -22,3 +22,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('firstpage.login');
 })->name('login');
+
+Route::get('/coba', function () {
+    return view('secondpage.utama');
+})->name('navbar');

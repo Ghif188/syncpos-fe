@@ -7,7 +7,7 @@
     <a href="{{route('register')}}">
         <div class="text border-yellow-400 text-center text-lg p-2 mt-10 border-2 rounded-xl">Buat Akun</div>
     </a>
-    <a href="">
+    <a href="{{route('login')}}">
         <div class="text bg-yellow-400 text-center p-2 text-lg mt-3 rounded-xl">Masuk</div>
     </a>
     <a href="">
