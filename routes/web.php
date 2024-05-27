@@ -26,3 +26,7 @@ Route::get('/login', function () {
 Route::get('/coba', function () {
     return view('secondpage.utama');
 })->name('navbar');
+
+Route::get('/aksesAPI', function () {
+    return view('secondpage.aksesAPI');
+})->name('navbar1');

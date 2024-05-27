@@ -1,0 +1,64 @@
+@extends('secondpage.layout')
+
+@section('content')
+    <div class="flex justify-center m-4 mt-10">
+        <p class="font-semibold text-3xl">Akses Kode API</p>
+    </div>
+
+    <div class="container m-4">
+        <div class="flex">
+            {{-- link link --}}
+            <div class="mx-auto flex justify-center items-center">
+                <div class="container mx-auto bg-gray-200 p-4">
+                    <div class="w-1/2 p-4 border rounded-lg shadow-md flex items-center justify-between">
+                        <div>
+                            <h6>Organization ID</h6>
+                            <a href="https://example.com" class="text-xl text-blue-500 underline">bacaf2be-7f9a-47b1-851a-8380da ...</a>
+                        </div>
+                        <button id="copyButton" class="flex items-center text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 ml-4">
+                            <img src="img/copy_icon.png" alt="copy icon">
+                        </button>
+                    </div>
+                
+                    <div class="w-1/2 p-4 border rounded-lg shadow-md flex items-center justify-between mt-4">
+                        <div>
+                            <h6>API Key</h6>
+                            <a href="https://www.google.com/" class="text-xl text-blue-500 underline">bacaf2be-7f9a-47b1-851a-8380da ...</a>
+                        </div>
+                        <button id="copyButton2" class="flex items-center text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 ml-4">
+                            <img src="img/copy_icon.png" alt="copy icon">
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            {{-- buat gambar --}}
+            <div class="w-1/2 p-4">
+                <img src="img/aksesAPI.png" alt="Deskripsi Gambar" class="w-full h-auto">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const link = document.querySelector('a').href;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+
+        document.getElementById('copyButton2').addEventListener('click', function() {
+            const link = document.querySelector('a').href;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
+
+@endsection
