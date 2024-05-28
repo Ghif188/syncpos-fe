@@ -27,6 +27,10 @@ Route::get('/coba', function () {
     return view('secondpage.utama');
 })->name('navbar');
 
+Route::get('/tambahPasien', function () {
+    return view('secondpage.tambahDataPasien');
+})->name('navbar');
+
 Route::get('/aksesAPI', function () {
     return view('secondpage.aksesAPI');
 })->name('navbar1');
