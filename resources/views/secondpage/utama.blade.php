@@ -46,53 +46,74 @@
                         </div>
                     </div>
                     <div class="mt-5 p-5 bg-neutral-100 rounded-lg border-2 border-neutral-200">
-                        <div class="flex justify-between mb-5">  
+                        <div class="flex justify-between mb-5" >  
                             <p class="text-3xl font-bold">Pemeriksaan</p>
-                            <button class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg">Tambah Pemeriksaan</button>
+                            <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg" onclick="tampilForm()">Tambah Pemeriksaan</button>
                         </div>
+                        <div id="form-pemeriksaan" class="hidden mb-5">
+                            <div class="flex items-center justify-between mb-5">
+                                <p class=" text-gray-400 ">Umur</p>
+                                <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                            </div>
+                            <div class="flex items-center justify-between mb-5">
+                                <p class=" text-gray-400 ">Berat Badan</p>
+                                <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                            </div>
+                            <div class="flex items-center justify-between mb-5">
+                                <p class=" text-gray-400 ">Tinggi Badan</p>
+                                <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                            </div>
+                            <div class="flex items-center justify-between mb-5">
+                                <p class=" text-gray-400 ">Lingkar Kepala</p>
+                                <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                            </div>
+                            <div class="flex justify-end">
+                                <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg">Simpan Pemeriksaan</button>
+                            </div>
+                            </div>
                         <table id="example">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Pemeriksaan</th>
+                                    <th>Fasyankes</th>
+                                    <th>Umur</th>
+                                    <th>Berat Badan</th>
+                                    <th>Tinggi Badan</th>
+                                    <th>Lingkar Kepala</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="text-center">
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
+                                    <td>21/05/2024</td>
+                                    <td>Posyandu Bakti Satu</td>
+                                    <td>3 Bulan</td>
+                                    <td>16</td>
+                                    <td>45</td>
+                                    <td>32</td>
                                 </tr>
                                 <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011-07-25</td>
-                                    <td>$170,750</td>
+                                    <td>21/05/2024</td>
+                                    <td>Posyandu Bakti Satu</td>
+                                    <td>3 Bulan</td>
+                                    <td>16</td>
+                                    <td>45</td>
+                                    <td>32</td>
                                 </tr>
                                 <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009-01-12</td>
-                                    <td>$86,000</td>
+                                    <td>21/05/2024</td>
+                                    <td>Posyandu Bakti Satu</td>
+                                    <td>3 Bulan</td>
+                                    <td>16</td>
+                                    <td>45</td>
+                                    <td>32</td>
                                 </tr>
                                 <tr>
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012-03-29</td>
-                                    <td>$433,060</td>
+                                    <td>21/05/2024</td>
+                                    <td>Posyandu Bakti Satu</td>
+                                    <td>3 Bulan</td>
+                                    <td>16</td>
+                                    <td>45</td>
+                                    <td>32</td>
                                 </tr>
                             </tbody>
                             <tfoot>
@@ -113,5 +134,27 @@
     </div>
     <script>
         $("#example").DataTable();
+        function tampilForm() {
+
+            var btn = document.getElementById("btn-form-pemeriksaan");
+            let btnText = btn.innerText;
+            var form = document.getElementById("form-pemeriksaan");
+
+            if (btnText == "Tambah Pemeriksaan") {
+                form.classList.remove("hidden");
+                form.classList.add("block");
+
+                btn.classList.remove("bg-green-500");
+                btn.classList.add("bg-red-700");
+                btnText = "X"
+            } else {
+                form.classList.remove("block");
+                form.classList.add("hidden");
+
+                btn.classList.remove("bg-red-700");
+                btn.classList.add("bg-green-500");
+                btnText = "Tambah Pemeriksaan"
+            }
+        }
     </script>
 @endsection
