@@ -15,7 +15,7 @@
         <div class="w-4/5">
             <p class="font-bold text-3xl">Daftarkan akun SYNCPOS untuk</p>
             <p class="font-bold text-3xl mb-10">posyandu Anda</p>
-            <form action="">
+            <form action="" method="POST">
                 <p>Nama Posyandu</p>
                 <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Alamat Posyandu</p>

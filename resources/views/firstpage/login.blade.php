@@ -2,7 +2,7 @@
 @section('content')
 <div class="text-base w-4/5">
     <p class="font-bold text-3xl mb-10">Masuk ke portal SYNCPOS</p>
-    <form action="">
+    <form action="" method="POST">
         <p>Email</p>
         <input class="w-full border-2 mb-3 rounded-lg p-1" type="email">
         <div class="flex justify-between">

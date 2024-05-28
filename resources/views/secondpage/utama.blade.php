@@ -3,18 +3,20 @@
 
 @section('content')
     <div class="m-4">
-        <a href="#" class="underline font-regular text-lg">Akses Kode API</a>
+        <a href={{route('navbar1')}} class="underline font-regular text-lg">Akses Kode API</a>
         <div class="w-sceen flex flex-wrap justify-center">
             <div class="w-2/3 flex flex-wrap justify-center">
                 <div class="w-full">
                     <div class="flex justify-between mb-3">  
                         <p class="text-3xl font-bold">CARI NIK</p>
-                        <button class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</button>
+                        <a href={{route('tambah-pasien')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>
                     </div>
-                    <div class="flex justify-between mb-10">
-                        <input type="text" class="w-5/6 border-2 mr-3 p-1 rounded-lg">
-                        <button class="bg-yellow-400 w-1/6 h-min p-2 text-center color-white rounded-lg">Cari</button>
-                    </div>
+                    <form action="" method="post">
+                        <div class="flex justify-between mb-10">
+                            <input type="text" class="w-5/6 border-2 mr-3 p-1 rounded-lg">
+                            <button class="bg-yellow-400 w-1/6 h-min p-2 text-center color-white rounded-lg">Cari</button>
+                        </div>
+                    </form>
                     <div>
                         <p class="text-3xl font-bold mb-3">Data Pasien</p>
                         <div class="p-5 bg-neutral-100 rounded-lg border-2 border-neutral-200">
@@ -51,26 +53,28 @@
                             <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg" onclick="tampilForm()">Tambah Pemeriksaan</button>
                         </div>
                         <div id="form-pemeriksaan" class="hidden mb-5">
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Umur</p>
-                                <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Berat Badan</p>
-                                <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Tinggi Badan</p>
-                                <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Lingkar Kepala</p>
-                                <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex justify-end">
-                                <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg">Simpan Pemeriksaan</button>
-                            </div>
-                            </div>
+                            <form action="">
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Umur</p>
+                                    <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Berat Badan</p>
+                                    <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Tinggi Badan</p>
+                                    <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Lingkar Kepala</p>
+                                    <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex justify-end">
+                                    <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg">Simpan Pemeriksaan</button>
+                                </div>
+                            </form>
+                        </div>
                         <table id="example">
                             <thead>
                                 <tr>
@@ -146,14 +150,14 @@
 
                 btn.classList.remove("bg-green-500");
                 btn.classList.add("bg-red-700");
-                btnText = "X"
+                document.getElementById("btn-form-pemeriksaan").innerText = "X"
             } else {
                 form.classList.remove("block");
                 form.classList.add("hidden");
 
                 btn.classList.remove("bg-red-700");
                 btn.classList.add("bg-green-500");
-                btnText = "Tambah Pemeriksaan"
+                document.getElementById("btn-form-pemeriksaan").innerText = "Tambah Pemeriksaan"
             }
         }
     </script>

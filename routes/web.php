@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // $response = Http::post('http://35.240.194.181:4000/api/fasyankes/login', [
+    //     'email' => 'toshka@toshka.com',
+    //     'password' => 'password',
+    // ]);
+    // dd($response->body());
     return view('firstpage.welcome');
-});
+}); 
 Route::get('/register', function () {
     return view('firstpage.register');
 })->name('register');
@@ -23,13 +29,13 @@ Route::get('/login', function () {
     return view('firstpage.login');
 })->name('login');
 
-Route::get('/coba', function () {
+Route::get('/dashboard', function () {
     return view('secondpage.utama');
 })->name('navbar');
 
 Route::get('/tambahPasien', function () {
     return view('secondpage.tambahDataPasien');
-})->name('navbar');
+})->name('tambah-pasien');
 
 Route::get('/aksesAPI', function () {
     return view('secondpage.aksesAPI');
