@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite('resources/css/app.css')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include DataTables library -->
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <!-- Include DataTables CSS (optional) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 </head>
 <body>
     
@@ -14,8 +19,6 @@
       <a href="#" class="flex items-center space-x-3">
           <img src="img/logo.png" class="h-11" alt="Logo" />
       </a>
-      
-
       <div class="w-full md:w-auto">
         <div class="flex flex-wrap items-center gap-2">
           <a href="#" class="flex items-center space-x-3">
@@ -30,6 +33,5 @@
 </nav>
 
 @yield('content')
-
 </body>
 </html>
