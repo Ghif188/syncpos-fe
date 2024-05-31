@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AksesApiController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\DataCheckup;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
@@ -14,29 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // $response = Http::post('http://35.240.194.181:4000/api/fasyankes/login', [
-    //     'email' => 'toshka@toshka.com',
-    //     'password' => 'password',
-    // ]);
-    // dd($response->body());
-    return view('firstpage.welcome');
-}); 
-Route::get('/register', function () {
-    return view('firstpage.register');
-})->name('register');
-Route::get('/login', function () {
-    return view('firstpage.login');
-})->name('login');
+Route::get('/', [AuthController::class, 'index']); 
+Route::get('/register', [AuthController::class, 'registerView'])->name('register-view');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/login', [AuthController::class, 'loginView'])->name('login-view');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/dashboard', function () {
-    return view('secondpage.utama');
-})->name('navbar');
+    return view('secondpage.cariNik');
+})->name('dashboard');
+
+Route::post('/cariNIK', [Dashboard::class, 'cariNik'])->name('cari-nik');
 
 Route::get('/tambahPasien', function () {
     return view('secondpage.tambahDataPasien');
 })->name('tambah-pasien');
 
-Route::get('/aksesAPI', function () {
-    return view('secondpage.aksesAPI');
-})->name('navbar1');
+Route::get('/aksesAPI', [AksesApiController::class, 'index'])->name('akses-api');

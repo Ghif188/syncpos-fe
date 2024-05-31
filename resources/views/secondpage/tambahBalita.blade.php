@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="m-4">
-        <a href={{route('navbar1')}} class="underline font-regular text-lg">Akses Kode API</a>
+        <a href={{route('akses-api')}} class="underline font-regular text-lg">Akses Kode API</a>
         <div class="w-sceen flex flex-wrap justify-center">
             <div class="w-2/3 flex flex-wrap justify-center">
                 <div class="w-full">
@@ -23,27 +23,27 @@
                             <p class="mb-7 font-medium text-xl">Identitas Pasien</p>
                             <div class="flex items-center justify-between mb-5">
                                 <p class=" text-gray-400 ">NIK</p>
-                                <input type="text" disabled value="NIK" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                <input value="{{ $pasien['nik'] }}" type="text" disabled value="NIK" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                             </div>
                             <div class="flex items-center justify-between mb-5">
                                 <p class=" text-gray-400 ">Nama</p>
-                                <input type="text" disabled value="Nama" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                <input value="{{ $pasien['nama'] }}" type="text" disabled value="Nama" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                             </div>
                             <div class="flex items-center justify-between mb-5">
                                 <p class=" text-gray-400 ">Status</p>
-                                <input type="text" disabled value="Status" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                <input value="{{ $pasien['status'] }}" type="text" disabled value="Status" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                             </div>
                             <div class="flex items-center justify-between mb-5">
                                 <p class=" text-gray-400 ">Jenis Kelamin</p>
-                                <input type="text" disabled value="Jenis Kelamin" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                <input value="{{ $pasien['jenis_kelamin'] }}" type="text" disabled value="Jenis Kelamin" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                             </div>
                             <div class="flex items-center justify-between mb-5">
                                 <p class=" text-gray-400 ">Tanggal Lahir</p>
-                                <input type="date" disabled value="Tanggal Lahir" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                <input value="{{ $pasien['tanggal_lahir'] }}" type="date" disabled value="Tanggal Lahir" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                             </div>
                             <div class="flex items-center justify-between mb-5">
                                 <p class=" text-gray-400 ">Alamat</p>
-                                <input type="text" disabled value="Alamat" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                <input value="{{ $pasien['alamat'] }}" type="text" disabled value="Alamat" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                             </div>
                         </div>
                     </div>
@@ -87,49 +87,17 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
+                                @foreach ($dataCheckup as $data)
                                 <tr>
-                                    <td>21/05/2024</td>
-                                    <td>Posyandu Bakti Satu</td>
-                                    <td>3 Bulan</td>
-                                    <td>16</td>
-                                    <td>45</td>
-                                    <td>32</td>
+                                    <td>{{ Carbon\Carbon::parse($data['createdAt'])->format('d-m-Y') }}</td>
+                                    <td>{{ $data['fasyankes_id'] }}</td>
+                                    <td>{{ $data['umur'] ." Bulan" }}</td>
+                                    <td>{{ $data['berat_badan'] }}</td>
+                                    <td>{{ $data['tinggi_badan'] }}</td>
+                                    <td>{{ $data['lingkar_kepala'] }}</td>
                                 </tr>
-                                <tr>
-                                    <td>21/05/2024</td>
-                                    <td>Posyandu Bakti Satu</td>
-                                    <td>3 Bulan</td>
-                                    <td>16</td>
-                                    <td>45</td>
-                                    <td>32</td>
-                                </tr>
-                                <tr>
-                                    <td>21/05/2024</td>
-                                    <td>Posyandu Bakti Satu</td>
-                                    <td>3 Bulan</td>
-                                    <td>16</td>
-                                    <td>45</td>
-                                    <td>32</td>
-                                </tr>
-                                <tr>
-                                    <td>21/05/2024</td>
-                                    <td>Posyandu Bakti Satu</td>
-                                    <td>3 Bulan</td>
-                                    <td>16</td>
-                                    <td>45</td>
-                                    <td>32</td>
-                                </tr>
+                                @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

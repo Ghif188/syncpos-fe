@@ -8,7 +8,7 @@
                 <div class="w-full">
                     <div class="flex justify-between mb-3">  
                         <p class="text-3xl font-bold">TAMBAH PASIEN</p>
-                        <a href={{route('navbar')}} class="bg-red-700 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Batal Tambah Pasien</a>
+                        <a href={{route('dashboard')}} class="bg-red-700 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Batal Tambah Pasien</a>
                     </div>
                     <div>
                         <form action="" method="post">   

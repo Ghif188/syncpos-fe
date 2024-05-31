@@ -15,35 +15,34 @@
         <div class="w-4/5">
             <p class="font-bold text-3xl">Daftarkan akun SYNCPOS untuk</p>
             <p class="font-bold text-3xl mb-10">posyandu Anda</p>
-            <form action="" method="POST">
-                <p>Nama Posyandu</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
-                <p>Alamat Posyandu</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
-                <p>Lokasi</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <p>Nama Fasyankes</p>
+                <input name="nama_fasyankes" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+                <p>Alamat</p>
+                <input name="alamat" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Provinsi</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+                <input name="provinsi" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Kabupaten</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+                <input name="kabupaten" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Kecamatan</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+                <input name="kecamatan" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Kelurahan</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+                <input name="kelurahan" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Nomor Telepon</p>
                 <div class="flex mb-3">
                     <div class="px-3 flex items-center bg-slate-300 rounded-md mr-3"> +62</div>
-                    <input class="w-full border-2 rounded-lg p-1" type="number">
+                    <input name="no_telp" class="w-full border-2 rounded-lg p-1" type="number">
                 </div>
                 <p>Email</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
+                <input name="email" class="w-full border-2 mb-3 rounded-lg p-1" type="text">
                 <p>Kata Sandi</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="password">
+                <input name="password" class="w-full border-2 mb-3 rounded-lg p-1" type="password">
                 <p>Konfirmasi Kata Sandi</p>
-                <input class="w-full border-2 mb-3 rounded-lg p-1" type="text">
-                <a href="">
-                    <div class="text bg-yellow-400 text-center p-2 text-lg mt-3 rounded-xl">Masuk</div>
-                </a>
+                <input name="passwordConfirm" class="w-full border-2 mb-3 rounded-lg p-1" type="password">
+                <button type="submit">
+                    <div class="text bg-yellow-400 text-center p-2 text-lg mt-3 rounded-xl">Register</div>
+                </button>
             </form>
         </div>
     </div>

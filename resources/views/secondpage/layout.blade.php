@@ -16,7 +16,7 @@
     
 <nav class="bg-white border-gray-200 shadow-cyan-300 shadow-lg">
     <div class="max-w-screen flex flex-wrap items-center justify-between mx-auto p-5 bg-black">
-      <a href="#" class="flex items-center space-x-3">
+      <a href="/dashboard" class="flex items-center space-x-3">
           <img src="img/logo.png" class="h-11" alt="Logo" />
       </a>
       <div class="w-full md:w-auto">
@@ -25,7 +25,7 @@
             <img src="img/user_icon.png" class="h-9" alt="Logo" />
           </a>
           <div class="font-regular text-xl flex flex-col text-white p-4 md:p-0 mt-4 md:mt-0">
-            <h2>Posyandu KarangGayam 2</h2>
+            <h2>{{ session('auth')['data']['nama_fasyankes'] }}</h2>
           </div>
         </div>
       </div>
