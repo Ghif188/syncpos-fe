@@ -36,7 +36,7 @@ class Dashboard extends Controller
 
     public function tambahPasien(Request $request){
         $request->validate([
-            'NIK' => 'required|max:16',
+            'NIK' => 'required|min:16|max:16',
             'nama' => 'required|max:255',
             'status' => 'required',
             'jenis_kelamin' => 'required',
@@ -96,6 +96,56 @@ class Dashboard extends Controller
             }
         } else {
             return redirect()->back()->withErrors(['message' => 'Creating Pasien Failed']);
+        }
+    }
+
+    public function checkupBalita(Request $request){
+        $request->validate([
+            'nik' => 'required|min:16|max:16',
+            'berat_badan' => 'required|numeric',
+            'tinggi_badan' => 'required|numeric',
+            'lingkar_kepala' => 'required|numeric'
+        ]);
+
+        $auth = Session::get('auth');
+        $response = Http::withToken($auth['token'])->post(config('services.api.url').'checkup/balita', [
+            'berat_badan' => (int) $request->berat_badan,
+            'tinggi_badan' => (int) $request->tinggi_badan,
+            'lingkar_kepala' => (int) $request->lingkar_kepala,
+            'nik' => $request->nik
+        ]);
+
+        if ($response->successful()) {
+            return redirect()->route('cari-nik', ['nik' => $request->nik])->with('message', 'Successfully Checkup');
+        } else {
+            return redirect()->back()->withErrors(['message' => 'Creating Checkup Failed']);
+        }
+    }
+
+    public function checkupLansia(Request $request){
+        $request->validate([
+            'nik' => 'required|min:16|max:16',
+            'berat_badan' => 'required|numeric',
+            'tinggi_badan' => 'required|numeric',
+            'tekanan_darah' => 'required',
+            'denyut_nadi' => 'required',
+            'assesment' => 'required'
+        ]);
+
+        $auth = Session::get('auth');
+        $response = Http::withToken($auth['token'])->post(config('services.api.url').'checkup/lansia', [
+            'berat_badan' => (int) $request->berat_badan,
+            'tinggi_badan' => (int) $request->tinggi_badan,
+            'tekanan_darah' => $request->tekanan_darah,
+            'denyut_nadi' => $request->denyut_nadi,
+            'assesment' => $request->assesment,
+            'nik' => $request->nik
+        ]);
+
+        if ($response->successful()) {
+            return redirect()->route('cari-nik', ['nik' => $request->nik])->with('message', 'Successfully Checkup');
+        } else {
+            return redirect()->back()->withErrors(['message' => 'Creating Checkup Failed']);
         }
     }
 }

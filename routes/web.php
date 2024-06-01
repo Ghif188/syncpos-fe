@@ -28,6 +28,8 @@ Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
 Route::get('/cari-nik', [Dashboard::class, 'cariNik'])->name('cari-nik');
 Route::get('/tambah-pasien', [Dashboard::class, 'tambahPasienView'])->name('tambah-pasien-view');
 Route::post('/tambah-pasien', [Dashboard::class, 'tambahPasien'])->name('tambah-pasien');
+Route::post('/checkup-balita', [Dashboard::class, 'checkupBalita'])->name('checkup-balita');
+Route::post('/checkup-lansia', [Dashboard::class, 'checkupLansia'])->name('checkup-lansia');
 
 
 

@@ -12,70 +12,67 @@
                         <a href={{route('tambah-pasien-view')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>
                     </div>
                     <form action="{{ route('cari-nik') }}" method="GET">
-                        @csrf
                         <div class="flex justify-between mb-10">
                             <input name="nik" type="text" class="w-5/6 border-2 mr-3 p-1 rounded-lg">
                             <button type="submit" class="bg-yellow-400 w-1/6 h-min p-2 text-center color-white rounded-lg">Cari</button>
                         </div>
                     </form>
                     <div>
-                        <p class="text-3xl font-bold mb-3">Data Pasien</p>
-                        <div class="p-5 bg-neutral-100 rounded-lg border-2 border-neutral-200">
-                            <p class="mb-7 font-medium text-xl">Identitas Pasien</p>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">NIK</p>
-                                <input value="{{ $pasien['nik'] }}" type="text" disabled value="NIK" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Nama</p>
-                                <input value="{{ $pasien['nama'] }}" type="text" disabled value="Nama" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Status</p>
-                                <input value="{{ $pasien['status'] }}" type="text" disabled value="Status" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Jenis Kelamin</p>
-                                <input value="{{ $pasien['jenis_kelamin'] }}" type="text" disabled value="Jenis Kelamin" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Tanggal Lahir</p>
-                                <input value="{{ $pasien['tanggal_lahir'] }}" type="date" disabled value="Tanggal Lahir" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                            <div class="flex items-center justify-between mb-5">
-                                <p class=" text-gray-400 ">Alamat</p>
-                                <input value="{{ $pasien['alamat'] }}" type="text" disabled value="Alamat" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-5 p-5 bg-neutral-100 rounded-lg border-2 border-neutral-200">
-                        <div class="flex justify-between mb-5" >  
-                            <p class="text-3xl font-bold">Pemeriksaan</p>
-                            <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg" onclick="tampilForm()">Tambah Pemeriksaan</button>
-                        </div>
-                        <div id="form-pemeriksaan" class="hidden mb-5">
-                            <form action="">
+                        <form action="{{ route('checkup-balita') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="nik" value="{{ $pasien['nik'] }}">
+                            <p class="text-3xl font-bold mb-3">Data Pasien</p>
+                            <div class="p-5 bg-neutral-100 rounded-lg border-2 border-neutral-200">
+                                <p class="mb-7 font-medium text-xl">Identitas Pasien</p>
                                 <div class="flex items-center justify-between mb-5">
-                                    <p class=" text-gray-400 ">Umur</p>
-                                    <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                    <p class=" text-gray-400 ">NIK</p>
+                                    <input name="nik" value="{{ $pasien['nik'] }}" type="text" disabled class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                                 </div>
                                 <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Nama</p>
+                                    <input value="{{ $pasien['nama'] }}" type="text" disabled value="Nama" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Status</p>
+                                    <input value="{{ $pasien['status'] }}" type="text" disabled value="Status" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Jenis Kelamin</p>
+                                    <input value="{{ $pasien['jenis_kelamin'] }}" type="text" disabled value="Jenis Kelamin" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Tanggal Lahir</p>
+                                    <input value="{{ $pasien['tanggal_lahir'] }}" type="date" disabled value="Tanggal Lahir" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                                <div class="flex items-center justify-between mb-5">
+                                    <p class=" text-gray-400 ">Alamat</p>
+                                    <input value="{{ $pasien['alamat'] }}" type="text" disabled value="Alamat" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 p-5 bg-neutral-100 rounded-lg border-2 border-neutral-200">
+                            <div class="flex justify-between mb-5" >  
+                                <p class="text-3xl font-bold">Pemeriksaan</p>
+                                <button type="button" id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg" onclick="tampilForm()">Tambah Pemeriksaan</button>
+                            </div>
+                            <div id="form-pemeriksaan" class="hidden mb-5">
+                                <div class="flex items-center justify-between mb-5">
                                     <p class=" text-gray-400 ">Berat Badan</p>
-                                    <input type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                    <input required name="berat_badan" type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                                 </div>
                                 <div class="flex items-center justify-between mb-5">
                                     <p class=" text-gray-400 ">Tinggi Badan</p>
-                                    <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                    <input required name="tinggi_badan" type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                                 </div>
                                 <div class="flex items-center justify-between mb-5">
                                     <p class=" text-gray-400 ">Lingkar Kepala</p>
-                                    <input  type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                    <input required name="lingkar_kepala" type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
                                 </div>
                                 <div class="flex justify-end">
-                                    <button id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg">Simpan Pemeriksaan</button>
+                                    <button type="submit" id="btn-form-pemeriksaan" class="bg-green-500 font-medium text-white h-min p-2 text-center color-white rounded-lg">Simpan Pemeriksaan</button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                         <table id="example">
                             <thead>
                                 <tr>
@@ -91,7 +88,7 @@
                                 @foreach ($dataCheckup as $data)
                                 <tr>
                                     <td>{{ Carbon\Carbon::parse($data['createdAt'])->format('d-m-Y') }}</td>
-                                    <td>{{ $data['fasyankes_id'] }}</td>
+                                    <td>{{ $data['Fasyanke']['nama_fasyankes'] }}</td>
                                     <td>{{ $data['umur'] ." Bulan" }}</td>
                                     <td>{{ $data['berat_badan'] }}</td>
                                     <td>{{ $data['tinggi_badan'] }}</td>
