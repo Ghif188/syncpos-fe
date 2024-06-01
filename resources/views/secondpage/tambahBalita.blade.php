@@ -9,12 +9,13 @@
                 <div class="w-full">
                     <div class="flex justify-between mb-3">  
                         <p class="text-3xl font-bold">CARI NIK</p>
-                        <a href={{route('tambah-pasien')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>
+                        <a href={{route('tambah-pasien-view')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>
                     </div>
-                    <form action="" method="post">
+                    <form action="{{ route('cari-nik') }}" method="GET">
+                        @csrf
                         <div class="flex justify-between mb-10">
-                            <input type="text" class="w-5/6 border-2 mr-3 p-1 rounded-lg">
-                            <button class="bg-yellow-400 w-1/6 h-min p-2 text-center color-white rounded-lg">Cari</button>
+                            <input name="nik" type="text" class="w-5/6 border-2 mr-3 p-1 rounded-lg">
+                            <button type="submit" class="bg-yellow-400 w-1/6 h-min p-2 text-center color-white rounded-lg">Cari</button>
                         </div>
                     </form>
                     <div>

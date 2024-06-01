@@ -24,14 +24,11 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/login', [AuthController::class, 'loginView'])->name('login-view');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/dashboard', function () {
-    return view('secondpage.cariNik');
-})->name('dashboard');
+Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+Route::get('/cari-nik', [Dashboard::class, 'cariNik'])->name('cari-nik');
+Route::get('/tambah-pasien', [Dashboard::class, 'tambahPasienView'])->name('tambah-pasien-view');
+Route::post('/tambah-pasien', [Dashboard::class, 'tambahPasien'])->name('tambah-pasien');
 
-Route::post('/cariNIK', [Dashboard::class, 'cariNik'])->name('cari-nik');
 
-Route::get('/tambahPasien', function () {
-    return view('secondpage.tambahDataPasien');
-})->name('tambah-pasien');
 
 Route::get('/aksesAPI', [AksesApiController::class, 'index'])->name('akses-api');
