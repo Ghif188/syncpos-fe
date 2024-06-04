@@ -4,11 +4,11 @@
 
 <div class="text-base w-4/5">
     @if (session('message'))
-    <div class="text-green-500">{{ session('message') }}</div>
+        <div class="p-4 bg-green-300 my-2 rounded-xl">{{ session('message') }}</div>
     @endif
 
     @if ($errors->any())
-        <div class="text-red-500">
+        <div class="p-4 bg-red-300 my-2 rounded-xl">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

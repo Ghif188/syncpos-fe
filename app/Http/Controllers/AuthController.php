@@ -72,7 +72,7 @@ class AuthController extends Controller
             return redirect('/login')->with('message', 'Sucessfully Register');
         } else {
             // Handle the error, for example, by returning an error message
-            return redirect()->back()->withErrors(['message' => 'Login failed. Please check your credentials and try again.']);
+            return redirect()->back()->withErrors(['message' => 'Email sudah terdaftar']);
         }
     }
 }

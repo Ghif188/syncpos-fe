@@ -7,6 +7,9 @@
         <div class="w-sceen flex flex-wrap justify-center">
             <div class="w-2/3 flex flex-wrap justify-center">
                 <div class="w-full">
+                    {{-- @if (session('message')) --}}
+                        <div class="p-4 bg-green-300 my-2 rounded-xl">Berhasil menyimpan data pasien dan pemeriksaan</div>
+                    {{-- @endif --}}
                     <div class="flex justify-between mb-3">  
                         <p class="text-3xl font-bold">CARI NIK</p>
                         <a href={{route('tambah-pasien-view')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>
@@ -67,7 +70,7 @@
                             <div id="form-pemeriksaan" class="hidden mb-5">
                                 <div class="flex items-center justify-between mb-5">
                                     <p class=" text-gray-400 ">Berat Badan</p>
-                                    <input name="berat_badan" type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6">
+                                    <input name="berat_badan" step="0.1" type="number" class=" border-2 py-1 px-4 rounded-lg  w-5/6" lang="en">
                                 </div>
                                 <div class="flex items-center justify-between mb-5">
                                     <p class=" text-gray-400 ">Tinggi Badan</p>
@@ -108,9 +111,9 @@
                                 <tr>
                                     <td>{{ Carbon\Carbon::parse($data['createdAt'])->format('d-m-Y') }}</td>
                                     <td>{{ $data['Fasyanke']['nama_fasyankes'] }}</td>
-                                    <td>{{ $data['umur'] ." Bulan" }}</td>
-                                    <td>{{ $data['berat_badan'] }}</td>
-                                    <td>{{ $data['tinggi_badan'] }}</td>
+                                    <td>{{ $data['umur'] ." Tahun" }}</td>
+                                    <td>{{ $data['berat_badan'] . " kg" }}</td>
+                                    <td>{{ $data['tinggi_badan'] . " cm" }}</td>
                                     <td>{{ $data['tekanan_darah'] }}</td>
                                     <td>{{ $data['denyut_nadi'] }}</td>
                                     <td>{{ $data['assesment'] }}</td>

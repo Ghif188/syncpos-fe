@@ -7,6 +7,15 @@
         <div class="w-sceen flex flex-wrap justify-center">
             <div class="w-2/3 flex flex-wrap justify-center">
                 <div class="w-full">
+                    @if ($errors->any())
+                    <div class="p-4 bg-red-300 my-2 rounded-xl">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="flex justify-between mb-3">  
                         <p class="text-3xl font-bold">CARI NIK</p>
                         <a href={{route('tambah-pasien-view')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>

@@ -7,6 +7,9 @@
         <div class="w-sceen flex flex-wrap justify-center">
             <div class="w-2/3 flex flex-wrap justify-center">
                 <div class="w-full">
+                    @if (session('message'))
+                        <div class="p-4 bg-green-300 my-2 rounded-xl">{{ session('message') }}</div>
+                    @endif
                     <div class="flex justify-between mb-3">  
                         <p class="text-3xl font-bold">CARI NIK</p>
                         <a href={{route('tambah-pasien-view')}} class="bg-green-500 font-medium text-white h-min w-1/6 p-2 text-center color-white rounded-lg">Tambah Pasien</a>
@@ -90,9 +93,9 @@
                                     <td>{{ Carbon\Carbon::parse($data['createdAt'])->format('d-m-Y') }}</td>
                                     <td>{{ $data['Fasyanke']['nama_fasyankes'] }}</td>
                                     <td>{{ $data['umur'] ." Bulan" }}</td>
-                                    <td>{{ $data['berat_badan'] }}</td>
-                                    <td>{{ $data['tinggi_badan'] }}</td>
-                                    <td>{{ $data['lingkar_kepala'] }}</td>
+                                    <td>{{ $data['berat_badan'] . " kg" }}</td>
+                                    <td>{{ $data['tinggi_badan'] . " cm" }}</td>
+                                    <td>{{ $data['lingkar_kepala'] . " cm"}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

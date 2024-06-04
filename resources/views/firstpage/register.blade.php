@@ -13,6 +13,15 @@
     </div>
     <div class="flex justify-center py-10 items-center w-3/5  px-10">
         <div class="w-4/5">
+            @if ($errors->any())
+            <div class="text-red-500">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <p class="font-bold text-3xl">Daftarkan akun SYNCPOS untuk</p>
             <p class="font-bold text-3xl mb-10">posyandu Anda</p>
             <form action="{{ route('register') }}" method="POST">
